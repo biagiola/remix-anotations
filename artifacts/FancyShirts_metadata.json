@@ -1,0 +1,112 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "enum FancyShirts.Size",
+						"name": "size",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum FancyShirts.Color",
+						"name": "color",
+						"type": "uint8"
+					}
+				],
+				"name": "buyShirt",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum FancyShirts.Size",
+						"name": "size",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum FancyShirts.Color",
+						"name": "color",
+						"type": "uint8"
+					}
+				],
+				"name": "getShirtPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum FancyShirts.Size",
+						"name": "size",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum FancyShirts.Color",
+						"name": "color",
+						"type": "uint8"
+					}
+				],
+				"name": "getShirts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"5.FancyShirts.sol": "FancyShirts"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"5.FancyShirts.sol": {
+			"keccak256": "0x36a83fd9d241836481295e68a00b7460bd0b72ac3bb4e3a8253d7d41f062c89a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d2eeac884b8b518b7f1a5171beb9a714f9277263add7048f137926993db5d07b",
+				"dweb:/ipfs/QmYSheLNxsydyuqRqjacYY4fqcL7TEc9GBPqBkknWgJcdh"
+			]
+		}
+	},
+	"version": 1
+}
