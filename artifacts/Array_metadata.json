@@ -1,0 +1,113 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "int256[]",
+						"name": "numbers",
+						"type": "int256[]"
+					},
+					{
+						"internalType": "int256",
+						"name": "target",
+						"type": "int256"
+					}
+				],
+				"name": "count",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256[]",
+						"name": "numbers",
+						"type": "int256[]"
+					},
+					{
+						"internalType": "int256",
+						"name": "target",
+						"type": "int256"
+					}
+				],
+				"name": "indexOf",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256[]",
+						"name": "numbers",
+						"type": "int256[]"
+					}
+				],
+				"name": "sum",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"9.Libraries.sol": "Array"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"9.Libraries.sol": {
+			"keccak256": "0x52bb7d12c3bd76444df33cbfcedf7693939c561b344116cb841c1cfc0d833716",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3b8db7395507f792df642bd60faa22413b32d38018a8d5c52a1b436bc789e77",
+				"dweb:/ipfs/Qmey4kPJtk9aQQ7wBNbWpcSw5SnbS9pRXGD6DPD7WsibuU"
+			]
+		}
+	},
+	"version": 1
+}
