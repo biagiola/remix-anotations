@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.25;
+pragma solidity 0.8.29;
 
 contract FancyShirts {
     enum Size {
@@ -24,19 +24,16 @@ contract FancyShirts {
     modifier correctAmount(Size size, Color color) {
         require(
             getShirtPrice(size, color) == msg.value,
-            "Incorrect amount sent"
+            "Incorrect amount set"
         );
         _;
     }
 
-    function getShirtPrice(Size size, Color color)
-        public
-        pure
-        returns (uint256)
-    {
+    function getShirtPrice(Size size, Color color) public pure returns(uint256) {
         uint256 price;
+
         if (size == Size.Small) {
-            price += 10;
+            price +=  10;
         } else if (size == Size.Medium) {
             price += 15;
         } else {
@@ -50,11 +47,7 @@ contract FancyShirts {
         return price;
     }
 
-    function buyShirt(Size size, Color color)
-        public
-        payable
-        correctAmount(size, color)
-    {
+    function buyShirt(Size size, Color color) public payable correctAmount(size, color) {
         Shirt memory shirt = Shirt(size, color);
         shirts[msg.sender].push(shirt);
     }
@@ -62,10 +55,10 @@ contract FancyShirts {
     function getShirts(Size size, Color color) public view returns (uint256) {
         uint256 count;
 
-        for (uint256 idx; idx < shirts[msg.sender].length; idx++) {
+        for (uint256 i; i < shirts[msg.sender].length; i++) {
             if (
-                shirts[msg.sender][idx].size == size &&
-                shirts[msg.sender][idx].color == color
+                shirts[msg.sender][i].size == size &&
+                shirts[msg.sender][i].color == color
             ) {
                 count++;
             }

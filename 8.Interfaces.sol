@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.25;
+pragma solidity 0.8.29;
 
 interface Comparable {
     function greaterThan(Comparable other) external view returns (bool);

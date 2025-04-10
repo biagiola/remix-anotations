@@ -1,19 +1,21 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.25;
+pragma solidity 0.8.29;
 
 contract RestrictedCount {
     int count;
     address owner;
 
-    constructor() { owner = msg.sender ; }
+    constructor() {
+        owner = msg.sender;
+    }
 
     modifier isOwner(address addr) {
         require(owner == addr, "You're not the owner");
         _;
     }
-    
+
     modifier maximun(int value) {
-        require(value <= 100, "You reach max value");
+        require(value <= 100, "You reach the max value");
         _;
     }
 
@@ -26,19 +28,17 @@ contract RestrictedCount {
         return count;
     }
 
-    function add(int value) public
+    function add(int _value) public
         isOwner(msg.sender)
-        maximun(count + value)
-        minimun(count + value)
     {
-        count += value;
+        count += _value;
     }
 
-    function subtract(int value) public
+    function substract(int _value) public
         isOwner(msg.sender)
-        maximun(count + value)
-        minimun(count + value)
+        maximun(count + _value)
+        minimun(count + _value)
     {
-        count -= value;
+        count -= _value;
     }
 }

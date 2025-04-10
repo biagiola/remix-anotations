@@ -1,14 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.25;
+pragma solidity 0.8.29;
 
 contract ShoppingList {
-    mapping(address => User) users;
-
-    struct User {
-        mapping(string => List) lists;
-        string[] listNames;
-    }
-
     struct Item {
         string name;
         uint256 quantity;
@@ -19,43 +12,37 @@ contract ShoppingList {
         Item[] items;
     }
 
-    function listExists(string memory name) internal view returns (bool) {
-        // if name of accessed list is empty than list has not been created
-        return bytes(users[msg.sender].lists[name].name).length != 0;
+    struct User {
+        mapping(string => List) lists;
+        string[] list_names;
+    }
+    mapping(address => User) users;
+
+    function listExists(string memory _name) internal view returns (bool) {
+        // if name of accessed list is empty, then list has not been created
+        return bytes(users[msg.sender].lists[_name].name).length != 0; // ???
     }
 
-    function createList(string memory name) public {
-        require(!listExists(name), "a list with this name already exists");
-        require(bytes(name).length > 0, "name cannot be empty");
-        users[msg.sender].listNames.push(name);
-        users[msg.sender].lists[name].name = name;
-    }
-    
     function getListNames() public view returns (string[] memory) {
-        return users[msg.sender].listNames;
+        return users[msg.sender].list_names;
     }
 
-    function getItemNames(string memory listName)
-        public
-        view
-        returns (string[] memory)
-    {
-        require(listExists(listName), "no list with this name exists");
-        string[] memory names = new string[](
-            users[msg.sender].lists[listName].items.length
+    function getItemNames(string memory _list_name) public view returns (string[] memory) {
+        require(listExists(_list_name), "No list with this name exists");
+        // set size 
+        string[] memory names = new string[] (
+            users[msg.sender].lists[_list_name].items.length
         );
-        for (uint256 idx; idx < names.length; idx++) {
-            names[idx] = users[msg.sender].lists[listName].items[idx].name;
+        // set names
+        for (uint256 i; i < names.length; i++) {
+            names[i] = users[msg.sender].lists[_list_name].items[i].name;
         }
+
         return names;
     }
 
-    function addItem(
-        string memory listName,
-        string memory itemName,
-        uint256 quantity
-    ) public {
-        require(listExists(listName), "no list with this name exists");
-        users[msg.sender].lists[listName].items.push(Item(itemName, quantity));
+    function addItem(string memory _list_name, string memory _item_name, uint256 quantity) public {
+        require(listExists(_list_name), "No list with this name exists");
+        users[msg.sender].lists[_item_name].items.push(Item(_item_name, quantity));
     }
 }
